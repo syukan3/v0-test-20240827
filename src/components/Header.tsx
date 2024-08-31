@@ -53,7 +53,6 @@ export default function Header({ isSidebarCollapsed, setIsSidebarCollapsed }: { 
                         <div className="w-8 h-8 bg-blue-500 rounded-full mr-2"></div>
                         <h1 className="text-xl font-bold tracking-tight text-gray-900">GAUGENIX</h1>
                     </Link>
-                    <h2 className="text-lg font-semibold text-gray-800 tracking-tight">{currentPage}</h2>
                 </div>
                 <div className="flex items-center space-x-4">
                     <div className={`relative transition-all duration-300 ease-in-out ${isSearchFocused ? 'w-96' : 'w-64'}`}>
