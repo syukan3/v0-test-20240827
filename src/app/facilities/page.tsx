@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { PlusIcon, PencilIcon, TrashIcon, MapPinIcon, ClockIcon, CalendarIcon } from 'lucide-react'
+import Link from 'next/link'
 
 interface Facility {
     id: string
@@ -43,6 +44,8 @@ const initialFacilities: Facility[] = [
     },
 ]
 
+export { initialFacilities }
+
 export default function FacilitiesPage() {
     const [facilities] = useState<Facility[]>(initialFacilities)
 
@@ -50,7 +53,7 @@ export default function FacilitiesPage() {
         <div className="container mx-auto p-3 bg-gray-50 min-h-screen">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {facilities.map((facility) => (
-                    <div key={facility.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <Link href={`/facilities/${facility.id}`} key={facility.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                         <img
                             src={facility.imageUrl}
                             alt={facility.name}
@@ -76,7 +79,7 @@ export default function FacilitiesPage() {
                                 <PencilIcon className="h-5 w-5" />
                             </button>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </div>
