@@ -1,7 +1,7 @@
-export default function DashboardPage() {
+export default function RolesPage() {
   return (
     <div className="bg-white rounded-lg shadow p-6 h-full flex items-center justify-center text-gray-500">
-      ダッシュボードのコンテンツがここに表示されます
+      ロールのコンテンツがここに表示されます
     </div>
   );
 }
