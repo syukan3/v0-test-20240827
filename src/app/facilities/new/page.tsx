@@ -17,7 +17,6 @@ export default function CreateFacility() {
     <div className="container mx-auto p-3 bg-gray-50 min-h-screen">
       <div className="bg-white rounded-lg shadow-lg overflow-hidden">
         <div className="p-6">
-          <h1 className="text-3xl font-bold mb-4 text-gray-800">新規施設登録</h1>
           <FacilityForm onSubmit={handleSubmit} />
         </div>
       </div>

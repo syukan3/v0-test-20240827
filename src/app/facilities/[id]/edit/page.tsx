@@ -39,7 +39,6 @@ export default function EditFacility({ params }: EditFacilityProps) {
     <div className="container mx-auto p-3 bg-gray-50 min-h-screen">
       <div className="bg-white rounded-lg shadow-lg overflow-hidden">
         <div className="p-6">
-          <h1 className="text-3xl font-bold mb-4 text-gray-800">施設編集</h1>
           <FacilityForm initialData={facility} onSubmit={handleSubmit} />
         </div>
       </div>
