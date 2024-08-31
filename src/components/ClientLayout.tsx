@@ -13,7 +13,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       <Header isSidebarCollapsed={isSidebarCollapsed} setIsSidebarCollapsed={setIsSidebarCollapsed} />
       <div className="flex flex-1 overflow-hidden">
         <Sidebar isSidebarCollapsed={isSidebarCollapsed} />
-        <div className="flex flex-col flex-1 overflow-hidden">
+        <div className="flex flex-col flex-1 overflow-hidden border-l border-gray-200">
           <SubHeader />
           <main className="flex-1 overflow-auto bg-gray-100 p-6">
             {children}
