@@ -2,25 +2,59 @@
 
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { MagnifyingGlassIcon, BellIcon } from '@heroicons/react/24/outline';
+import { MagnifyingGlassIcon, BellIcon, ChevronDoubleLeftIcon, ChevronDoubleRightIcon, Bars3Icon } from '@heroicons/react/24/outline';
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import UserMenu from '@/components/UserMenu';
 import { menuItems } from '@/lib/menuItems';
 import { userMenuItems } from '@/components/UserMenu';
 import NotificationSidebar from './NotificationSidebar';
+import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 
-export default function Header() {
+export default function Header({ isSidebarCollapsed, setIsSidebarCollapsed }: { isSidebarCollapsed: boolean, setIsSidebarCollapsed: (isSidebarCollapsed: boolean) => void }) {
     const [isSearchFocused, setIsSearchFocused] = useState(false);
     const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
     const pathname = usePathname();
-    const currentPage = menuItems.find(item => item.href === pathname)?.name 
-        || userMenuItems.find(item => item.href === pathname)?.name 
+    const currentPage = menuItems.find(item => item.href === pathname)?.name
+        || userMenuItems.find(item => item.href === pathname)?.name
         || 'ダッシュボード';
 
     return (
         <header className="bg-white shadow-sm z-10">
             <div className="max-w-full mx-auto py-2 px-4 flex items-center justify-between">
-                <h2 className="text-2xl font-semibold text-gray-800 tracking-tight">{currentPage}</h2>
+                <div className="flex items-center space-x-4">
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
+                        className="text-gray-500 p-1 hover:bg-transparent relative"
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
+                    >
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={isHovered ? 'hovered' : 'default'}
+                                initial={{ opacity: 0, rotate: -30 }}
+                                animate={{ opacity: 1, rotate: 0 }}
+                                exit={{ opacity: 0, rotate: 30 }}
+                                transition={{ duration: 0.2 }}
+                            >
+                                {isHovered ? (
+                                    isSidebarCollapsed ? <ChevronDoubleRightIcon className="h-6 w-6 text-gray-500" /> : <ChevronDoubleLeftIcon className="h-6 w-6 text-gray-500" />
+                                ) : (
+                                    <Bars3Icon className="h-6 w-6 text-gray-500" />
+                                )}
+                            </motion.div>
+                        </AnimatePresence>
+                    </Button>
+                    <Link href="/" className="flex items-center">
+                        <div className="w-8 h-8 bg-blue-500 rounded-full mr-2"></div>
+                        <h1 className="text-xl font-bold tracking-tight text-gray-900">GAUGENIX</h1>
+                    </Link>
+                    <h2 className="text-lg font-semibold text-gray-800 tracking-tight">{currentPage}</h2>
+                </div>
                 <div className="flex items-center space-x-4">
                     <div className={`relative transition-all duration-300 ease-in-out ${isSearchFocused ? 'w-96' : 'w-64'}`}>
                         <Input
