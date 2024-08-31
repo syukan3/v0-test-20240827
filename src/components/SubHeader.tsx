@@ -5,6 +5,7 @@ import { menuItems } from '@/lib/menuItems';
 import { userMenuItems } from '@/components/UserMenu';
 import { PlusIcon } from '@heroicons/react/24/outline';
 import { PencilIcon, TrashIcon } from 'lucide-react';
+import Link from 'next/link';
 
 export default function SubHeader() {
   const pathname = usePathname();
@@ -21,10 +22,10 @@ export default function SubHeader() {
         {currentPage}{currentPage === '施設' ? ' 一覧' : ''}
       </h2>
       {showAddButton && (
-        <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center text-sm">
+        <Link href="/facilities/new" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center text-sm">
           <PlusIcon className="h-4 w-4 mr-1.5" />
           登録
-        </button>
+        </Link>
       )}
       {showEditAndDeleteButtons && (
         <div className="flex items-center space-x-2">
