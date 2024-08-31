@@ -4,6 +4,7 @@ export interface Notification {
     content: string;
     date: string;
     imageUrl: string;
+    isNew: boolean; // 新しいフィールド
 }
 
 export const sampleNotifications: Notification[] = [
@@ -12,7 +13,8 @@ export const sampleNotifications: Notification[] = [
         title: '新機能リリースのお知らせ',
         content: '当サービスに新しい機能が追加されました。新機能には、ダッシュボードの改善、レポート機能の拡張、およびユーザーインターフェースの最適化が含まれます。これらの更新により、より効率的にサービスをご利用いただけます。詳細については、ヘルプセンターをご覧ください。',
         date: '2023-04-01T10:00:00Z',
-        imageUrl: 'https://picsum.photos/600/400?random=1'
+        imageUrl: 'https://picsum.photos/600/400?random=1',
+        isNew: true // 新着として設定
     },
     {
         id: '2',
