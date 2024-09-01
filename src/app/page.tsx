@@ -1,7 +1,9 @@
+import { IoTDashboardSample } from "@/components/IoTDashboardSample";
+
 export default function DashboardPage() {
   return (
-    <div className="bg-white rounded-lg shadow p-6 h-full flex items-center justify-center text-gray-500">
-      ダッシュボードのコンテンツがここに表示されます
+    <div className="container mx-auto p-3 bg-gray-50 min-h-screen overflow-y-auto">
+      <IoTDashboardSample />
     </div>
   );
 }

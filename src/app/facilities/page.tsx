@@ -67,7 +67,7 @@ export default function FacilitiesPage() {
             const facilityEndDate = new Date(facility.serviceEndDate);
             const startDate = filters.serviceEndDateStart ? new Date(filters.serviceEndDateStart) : null;
             const endDate = filters.serviceEndDateEnd ? new Date(filters.serviceEndDateEnd) : null;
-            
+
             return (
                 (!filters.name || facility.name.toLowerCase().includes(filters.name.toLowerCase())) &&
                 (!filters.status || facility.status === filters.status) &&
