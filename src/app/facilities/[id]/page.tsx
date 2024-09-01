@@ -27,14 +27,14 @@ export default function FacilityDetail({ params }: FacilityDetailProps) {
     }
 
     return (
-        <>
+        <div className="flex flex-col h-full">
             <SubHeader
                 title="施設 詳細"
                 showEditAndDeleteButtons={true}
                 onEdit={handleEdit}
                 onDelete={handleDelete}
             />
-            <div className="container mx-auto p-3 bg-gray-50 min-h-screen">
+            <div className="flex-1 overflow-auto p-6">
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                     <div className="p-6">
                         <h1 className="text-3xl font-bold mb-4 text-gray-800">{facility.name}</h1>
@@ -70,6 +70,6 @@ export default function FacilityDetail({ params }: FacilityDetailProps) {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

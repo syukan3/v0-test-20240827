@@ -4,7 +4,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { useRouter } from 'next/navigation';
 
 const facilitySchema = z.object({
   name: z.string().min(1, '施設名は必須です'),
@@ -19,18 +18,14 @@ type FacilityFormData = z.infer<typeof facilitySchema>;
 interface FacilityFormProps {
   initialData?: FacilityFormData;
   onSubmit: (data: FacilityFormData) => void;
+  onCancel: () => void;
 }
 
-export default function FacilityForm({ initialData, onSubmit }: FacilityFormProps) {
+export default function FacilityForm({ initialData, onSubmit, onCancel }: FacilityFormProps) {
   const { register, handleSubmit, formState: { errors } } = useForm<FacilityFormData>({
     resolver: zodResolver(facilitySchema),
     defaultValues: initialData,
   });
-  const router = useRouter();
-
-  const handleCancel = () => {
-    router.back();
-  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 text-black">
@@ -88,7 +83,7 @@ export default function FacilityForm({ initialData, onSubmit }: FacilityFormProp
       <div className="flex justify-end space-x-4">
         <Button
           type="button"
-          onClick={handleCancel}
+          onClick={onCancel}
           className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 transition duration-300 ease-in-out"
         >
           キャンセル

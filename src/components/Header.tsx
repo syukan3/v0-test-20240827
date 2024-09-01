@@ -23,7 +23,7 @@ export default function Header({ isSidebarCollapsed, setIsSidebarCollapsed }: { 
 
     return (
         <header className="bg-white z-10 border-b border-gray-200">
-            <div className="max-w-full mx-auto py-2 px-4 flex items-center justify-between">
+            <div className="max-w-full mx-auto py-2 px-4 flex items-center justify-between border-r border-gray-200">
                 <div className="flex items-center space-x-4">
                     <Button
                         variant="ghost"

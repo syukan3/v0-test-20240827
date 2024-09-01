@@ -81,7 +81,7 @@ export default function FacilitiesPage() {
     }
 
     return (
-        <>
+        <div className="flex flex-col h-full">
             <SubHeader
                 title="施設 一覧"
                 showAddButton={true}
@@ -89,7 +89,7 @@ export default function FacilitiesPage() {
                 onAdd={handleAdd}
                 onFilter={handleFilter}
             />
-            <div className="container mx-auto p-3 bg-gray-50 min-h-screen">
+            <div className="flex-1 overflow-auto p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {facilities.map((facility) => (
                         <div
@@ -143,6 +143,6 @@ export default function FacilitiesPage() {
                 onClose={() => setIsFilterOpen(false)}
                 onApplyFilter={handleApplyFilter}
             />
-        </>
+        </div>
     )
 }
