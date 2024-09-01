@@ -121,11 +121,11 @@ export default function FacilityFilterSidebar({ isOpen, onClose, onApplyFilter }
                     </div>
                 </div>
                 <div className="mt-8 flex justify-between space-x-4">
-                    <Button onClick={handleClearFilter} className="w-1/2 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-md shadow-sm transition-colors duration-200">
+                    <Button onClick={handleClearFilter} className="w-1/2 bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded-md shadow-sm transition-colors duration-200">
                         クリア
                     </Button>
-                    <Button onClick={handleApplyFilter} className="w-1/2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md shadow-sm transition-colors duration-200">
-                        フィルタを適用
+                    <Button onClick={handleApplyFilter} className="w-1/2 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md shadow-sm transition-colors duration-200">
+                        フィルタ適用
                     </Button>
                 </div>
             </div>
