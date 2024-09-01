@@ -26,10 +26,7 @@ export default function RoleFilterSidebar({ isOpen, onClose, onApplyFilter }: Ro
   };
 
   const handleClearFilter = () => {
-    setFilters({
-      name: '',
-      facility: '',
-    });
+    setFilters({ name: '', facility: '' });
   };
 
   return (

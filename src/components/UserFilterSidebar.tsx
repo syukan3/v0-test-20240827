@@ -31,6 +31,10 @@ export default function UserFilterSidebar({ isOpen, onClose, onApplyFilter }: Us
     onClose();
   };
 
+  const handleClearFilter = () => {
+    setFilters({ name: '', status: '', facility: '' });
+  };
+
   if (!isOpen) {
     return null;
   }
@@ -80,10 +84,10 @@ export default function UserFilterSidebar({ isOpen, onClose, onApplyFilter }: Us
         <div className="mt-6 flex justify-end">
           <Button
             type="button"
-            onClick={onClose}
+            onClick={handleClearFilter}
             className="mr-2 px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 transition duration-300 ease-in-out"
           >
-            キャンセル
+            クリア
           </Button>
           <Button
             type="button"

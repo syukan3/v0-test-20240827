@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import UserForm from '@/components/UserForm';
 import SubHeader from '@/components/SubHeader';
+import { sampleUsers } from '@/data/sampleUsers'; // 修正箇所
 
 interface User {
   name: string;

@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import UserForm from '@/components/UserForm';
 import SubHeader from '@/components/SubHeader';
-import { initialUsers } from '@/data/sampleUsers'; // 修正箇所
+import { sampleUsers } from '@/data/sampleUsers'; // 修正箇所
 
 interface EditUserProps {
   params: { id: string };
@@ -26,7 +26,7 @@ export default function EditUser({ params }: EditUserProps) {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    const userData = initialUsers.find(user => user.id === params.id);
+    const userData = sampleUsers.find(user => user.id === params.id); // 修正箇所
     setUser(userData || null);
   }, [params.id]);
 

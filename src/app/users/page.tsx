@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import SubHeader from '@/components/SubHeader';
 import UserFilterSidebar from '@/components/UserFilterSidebar';
-import { initialUsers } from '@/data/sampleUsers'; // 修正箇所
+import { sampleUsers } from '@/data/sampleUsers'; // 修正箇所
 
 interface User {
   id: string;
@@ -21,7 +21,7 @@ interface User {
 }
 
 export default function UsersPage() {
-  const [users, setUsers] = useState<User[]>(initialUsers || []); // 修正箇所
+  const [users, setUsers] = useState<User[]>(sampleUsers || []); // 修正箇所
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const router = useRouter();
 
@@ -34,7 +34,7 @@ export default function UsersPage() {
   };
 
   const handleApplyFilter = (filters: any) => {
-    const filteredUsers = initialUsers.filter(user => {
+    const filteredUsers = sampleUsers.filter(user => {
       return (
         (!filters.name || user.name.toLowerCase().includes(filters.name.toLowerCase())) &&
         (!filters.status || user.status === filters.status) &&

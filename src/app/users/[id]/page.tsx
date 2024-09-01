@@ -1,7 +1,7 @@
 'use client';
 
 import { notFound, useRouter } from 'next/navigation';
-import { initialUsers } from '@/data/sampleUsers'; // 修正箇所
+import { sampleUsers } from '@/data/sampleUsers'; // 修正箇所
 import SubHeader from '@/components/SubHeader';
 
 interface UserDetailProps {
@@ -9,7 +9,7 @@ interface UserDetailProps {
 }
 
 export default function UserDetail({ params }: UserDetailProps) {
-  const user = initialUsers.find(user => user.id === params.id);
+  const user = sampleUsers.find(user => user.id === params.id); // 修正箇所
   const router = useRouter();
 
   if (!user) {
