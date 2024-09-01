@@ -34,6 +34,7 @@ export default function NotificationSidebar({ isOpen, onClose }: { isOpen: boole
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
+                    onClick={onClose} // グレーアウト部分をクリックしたときにonCloseを呼び出す
                 >
                     <motion.div
                         className="fixed inset-y-0 right-0 w-96 bg-white shadow-lg z-50 overflow-hidden flex flex-col"
@@ -41,6 +42,7 @@ export default function NotificationSidebar({ isOpen, onClose }: { isOpen: boole
                         animate={{ x: 0 }}
                         exit={{ x: '100%' }}
                         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                        onClick={(e) => e.stopPropagation()} // サイドバー自体のクリックイベントの伝播を停止
                     >
                         <div className="p-4 bg-blue-500 text-white">
                             <div className="flex justify-between items-center">

@@ -5,6 +5,7 @@ import { PencilIcon } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import SubHeader from '@/components/SubHeader'
+import FacilityFilterSidebar from '@/components/FacilityFilterSidebar'
 
 interface Facility {
     id: string
@@ -49,11 +50,34 @@ const initialFacilities: Facility[] = [
 export { initialFacilities }
 
 export default function FacilitiesPage() {
-    const [facilities] = useState<Facility[]>(initialFacilities)
+    const [facilities, setFacilities] = useState<Facility[]>(initialFacilities)
+    const [isFilterOpen, setIsFilterOpen] = useState(false)
     const router = useRouter()
 
     const handleAdd = () => {
         router.push('/facilities/new')
+    }
+
+    const handleFilter = () => {
+        setIsFilterOpen(true)
+    }
+
+    const handleApplyFilter = (filters: any) => {
+        const filteredFacilities = initialFacilities.filter(facility => {
+            const facilityEndDate = new Date(facility.serviceEndDate);
+            const startDate = filters.serviceEndDateStart ? new Date(filters.serviceEndDateStart) : null;
+            const endDate = filters.serviceEndDateEnd ? new Date(filters.serviceEndDateEnd) : null;
+            
+            return (
+                (!filters.name || facility.name.toLowerCase().includes(filters.name.toLowerCase())) &&
+                (!filters.status || facility.status === filters.status) &&
+                (!filters.managementFacility || facility.managementFacility.toLowerCase().includes(filters.managementFacility.toLowerCase())) &&
+                (!filters.timezone || facility.timezone === filters.timezone) &&
+                (!startDate || facilityEndDate >= startDate) &&
+                (!endDate || facilityEndDate <= endDate)
+            )
+        })
+        setFacilities(filteredFacilities)
     }
 
     return (
@@ -61,7 +85,9 @@ export default function FacilitiesPage() {
             <SubHeader
                 title="施設 一覧"
                 showAddButton={true}
+                showFilterButton={true}
                 onAdd={handleAdd}
+                onFilter={handleFilter}
             />
             <div className="container mx-auto p-3 bg-gray-50 min-h-screen">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -106,6 +132,17 @@ export default function FacilitiesPage() {
                     ))}
                 </div>
             </div>
+            {isFilterOpen && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-50 z-40"
+                    onClick={() => setIsFilterOpen(false)}
+                />
+            )}
+            <FacilityFilterSidebar
+                isOpen={isFilterOpen}
+                onClose={() => setIsFilterOpen(false)}
+                onApplyFilter={handleApplyFilter}
+            />
         </>
     )
 }
