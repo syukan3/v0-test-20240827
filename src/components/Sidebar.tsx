@@ -11,7 +11,7 @@ export default function Sidebar({ isSidebarCollapsed }: { isSidebarCollapsed: bo
   const isFacilitiesPath = (path: string) => path.startsWith('/facilities');
 
   return (
-    <aside className={`bg-white transition-all duration-300 ease-in-out ${isSidebarCollapsed ? 'w-16' : 'w-64'} border-r border-gray-200 z-10`}>
+    <aside className={`bg-white transition-all duration-300 ease-in-out ${isSidebarCollapsed ? 'w-16' : 'w-64'} border-r border-gray-200`}>
       <nav className="py-2">
         <ul className="space-y-1">
           {menuItems.map((item) => (
