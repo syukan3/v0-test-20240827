@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
-import SubHeader from "@/components/SubHeader";
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
     const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -14,7 +13,6 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             <div className="flex flex-1 overflow-hidden">
                 <Sidebar isSidebarCollapsed={isSidebarCollapsed} />
                 <div className="flex flex-col flex-1 overflow-hidden border-l border-gray-200">
-                    <SubHeader />
                     {children}
                 </div>
             </div>

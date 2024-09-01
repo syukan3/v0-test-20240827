@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import FacilityForm from '@/components/FacilityForm';
+import SubHeader from '@/components/SubHeader';
 
 export default function CreateFacility() {
   const router = useRouter();
@@ -14,12 +15,15 @@ export default function CreateFacility() {
   };
 
   return (
-    <div className="container mx-auto p-3 bg-gray-50 min-h-screen">
-      <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-        <div className="p-6">
-          <FacilityForm onSubmit={handleSubmit} />
+    <>
+      <SubHeader title="施設 新規登録" />
+      <div className="container mx-auto p-3 bg-gray-50 min-h-screen">
+        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div className="p-6">
+            <FacilityForm onSubmit={handleSubmit} />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
