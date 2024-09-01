@@ -16,10 +16,13 @@ export default function SubHeader() {
   const showAddButton = pathname === '/facilities';
   const showEditAndDeleteButtons = pathname.startsWith('/facilities/') && pathname !== '/facilities';
 
+  // 施設詳細ページの判定を追加
+  const isFacilityDetailPage = pathname.match(/^\/facilities\/[^\/]+$/);
+
   return (
     <div className="bg-white border-b border-gray-200 px-6 py-3.5 flex justify-between items-center">
       <h2 className="text-lg font-semibold text-gray-800">
-        {currentPage}{currentPage === '施設' ? ' 一覧' : ''}
+        {isFacilityDetailPage ? '施設 詳細' : currentPage}{currentPage === '施設' && !isFacilityDetailPage ? ' 一覧' : ''}
       </h2>
       {showAddButton && (
         <Link href="/facilities/new" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center text-sm">
