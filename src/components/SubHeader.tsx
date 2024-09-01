@@ -1,11 +1,8 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-import { menuItems } from '@/lib/menuItems';
-import { userMenuItems } from '@/components/UserMenu';
 import { PlusIcon, FunnelIcon } from '@heroicons/react/24/outline';
 import { PencilIcon, TrashIcon } from 'lucide-react';
-import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 interface SubHeaderProps {
   title: string;
@@ -33,26 +30,26 @@ export default function SubHeader({
       <h2 className="text-lg font-semibold text-gray-800">{title}</h2>
       <div className="flex items-center space-x-2">
         {showAddButton && (
-          <button onClick={onAdd} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full flex items-center text-sm">
+          <Button onClick={onAdd} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center text-sm">
             <PlusIcon className="h-4 w-4 mr-1.5" />
             登録
-          </button>
+          </Button>
         )}
         {showFilterButton && (
-          <button onClick={onFilter} className="bg-gray-100 hover:bg-gray-200 text-gray-700 p-2 rounded-full flex items-center justify-center">
-            <FunnelIcon className="h-5 w-5" />
-          </button>
+          <Button onClick={onFilter} className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-md flex items-center text-sm">
+            <FunnelIcon className="h-4 w-4" />
+          </Button>
         )}
         {showEditAndDeleteButtons && (
           <div className="flex items-center space-x-2">
-            <button onClick={onEdit} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full flex items-center text-sm">
+            <Button onClick={onEdit} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center text-sm">
               <PencilIcon className="h-4 w-4 mr-1.5" />
               編集
-            </button>
-            <button onClick={onDelete} className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full flex items-center text-sm">
+            </Button>
+            <Button onClick={onDelete} className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md flex items-center text-sm">
               <TrashIcon className="h-4 w-4 mr-1.5" />
               削除
-            </button>
+            </Button>
           </div>
         )}
       </div>
