@@ -9,6 +9,7 @@ export interface Camera {
     captureInterval: string;
     latestReading: string;
     latestCapture: string;
+    imageUrl: string; // 画像URLを追加
 }
 
 export const initialCameras: Camera[] = [
@@ -22,7 +23,8 @@ export const initialCameras: Camera[] = [
         captureTime: '2023-10-01T10:00:00Z',
         captureInterval: '5分',
         latestReading: '正常',
-        latestCapture: '2023-10-01T10:05:00Z'
+        latestCapture: '2023-10-01T10:05:00Z',
+        imageUrl: '/path/to/imageA.jpg' // 画像URLを追加
     },
     {
         id: '2',
@@ -34,6 +36,7 @@ export const initialCameras: Camera[] = [
         captureTime: '2023-10-02T11:00:00Z',
         captureInterval: '10分',
         latestReading: '異常',
-        latestCapture: '2023-10-02T11:10:00Z'
+        latestCapture: '2023-10-02T11:10:00Z',
+        imageUrl: '/path/to/imageB.jpg' // 画像URLを追加
     }
 ];

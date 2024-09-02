@@ -18,6 +18,7 @@ export interface CameraRange {
     orientation: string;
     decimalPlaces: number;
     roundingMethod: string;
+    imageUrl: string; // 画像URLを追加
 }
 
 export const initialCameraRanges: CameraRange[] = [
@@ -40,7 +41,8 @@ export const initialCameraRanges: CameraRange[] = [
         maxValue: 100,
         orientation: '水平',
         decimalPlaces: 2,
-        roundingMethod: '四捨五入'
+        roundingMethod: '四捨五入',
+        imageUrl: '/path/to/imageA.jpg' // 画像URLを追加
     },
     {
         id: '2',
@@ -61,6 +63,7 @@ export const initialCameraRanges: CameraRange[] = [
         maxValue: 110,
         orientation: '垂直',
         decimalPlaces: 3,
-        roundingMethod: '切り捨て'
+        roundingMethod: '切り捨て',
+        imageUrl: '/path/to/imageB.jpg' // 画像URLを追加
     }
 ];

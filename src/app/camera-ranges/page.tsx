@@ -52,6 +52,11 @@ export default function CameraRangesPage() {
 								href={`/camera-ranges/${cameraRange.id}`}
 								className="block"
 							>
+								<img
+									src={cameraRange.imageUrl} // 画像URLを追加
+									alt={cameraRange.name}
+									className="w-full h-48 object-cover"
+								/>
 								<div className="p-4">
 									<h2 className="text-xl font-semibold text-gray-800">{cameraRange.name}</h2>
 									<p className="text-sm text-gray-600">カメラ: {cameraRange.camera}</p>

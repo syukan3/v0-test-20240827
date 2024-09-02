@@ -52,6 +52,11 @@ export default function CamerasPage() {
                                 href={`/cameras/${camera.id}`}
                                 className="block"
                             >
+                                <img
+                                    src={camera.imageUrl} // 画像URLを追加
+                                    alt={camera.name}
+                                    className="w-full h-48 object-cover"
+                                />
                                 <div className="p-4">
                                     <h2 className="text-xl font-semibold text-gray-800">{camera.name}</h2>
                                     <p className="text-sm text-gray-600">センサー: {camera.sensor}</p>
