@@ -42,7 +42,7 @@ export const initialCameraRanges: CameraRange[] = [
         orientation: '水平',
         decimalPlaces: 2,
         roundingMethod: '四捨五入',
-        imageUrl: '/path/to/imageA.jpg' // 画像URLを追加
+        imageUrl: 'images/camera_range_1.png'
     },
     {
         id: '2',
@@ -64,6 +64,28 @@ export const initialCameraRanges: CameraRange[] = [
         orientation: '垂直',
         decimalPlaces: 3,
         roundingMethod: '切り捨て',
-        imageUrl: '/path/to/imageB.jpg' // 画像URLを追加
+        imageUrl: 'images/camera_range_2.png'
+    },
+    {
+        id: '3',
+        name: '範囲C',
+        status: 'active',
+        camera: 'カメラC',
+        latestCaptureTime: '2023-10-03T12:00:00Z',
+        latestReading: '正常',
+        latestCapture: '2023-10-03T12:05:00Z',
+        processingType: 'CIRCULAR',
+        x1: 20,
+        y1: 20,
+        x2: 120,
+        y2: 120,
+        minAngle: 20,
+        minValue: 20,
+        maxAngle: 200,
+        maxValue: 120,
+        orientation: '水平',
+        decimalPlaces: 2,
+        roundingMethod: '四捨五入',
+        imageUrl: 'images/camera_range_3.png'
     }
 ];

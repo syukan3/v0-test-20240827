@@ -24,7 +24,7 @@ export const initialCameras: Camera[] = [
         captureInterval: '5分',
         latestReading: '正常',
         latestCapture: '2023-10-01T10:05:00Z',
-        imageUrl: '/path/to/imageA.jpg' // 画像URLを追加
+        imageUrl: '/images/camera_1.png'
     },
     {
         id: '2',
@@ -37,6 +37,6 @@ export const initialCameras: Camera[] = [
         captureInterval: '10分',
         latestReading: '異常',
         latestCapture: '2023-10-02T11:10:00Z',
-        imageUrl: '/path/to/imageB.jpg' // 画像URLを追加
+        imageUrl: '/images/camera_2.png'
     }
 ];
