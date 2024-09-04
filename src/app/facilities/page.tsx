@@ -25,7 +25,7 @@ const initialFacilities: Facility[] = [
         managementFacility: '本社',
         timezone: 'Asia/Tokyo',
         serviceEndDate: '2025-12-31',
-        imageUrl: '/placeholder.svg?height=100&width=100'
+        imageUrl: '/images/facility_1.webp'
     },
     {
         id: '2',
@@ -34,7 +34,7 @@ const initialFacilities: Facility[] = [
         managementFacility: '関西支部',
         timezone: 'Asia/Tokyo',
         serviceEndDate: '2024-12-31',
-        imageUrl: '/placeholder.svg?height=100&width=100'
+        imageUrl: '/images/facility_2.webp'
     },
     {
         id: '3',
@@ -43,7 +43,7 @@ const initialFacilities: Facility[] = [
         managementFacility: '九州支部',
         timezone: 'Asia/Tokyo',
         serviceEndDate: '2023-12-31',
-        imageUrl: '/placeholder.svg?height=100&width=100'
+        imageUrl: '/images/facility_3.webp'
     },
 ]
 
