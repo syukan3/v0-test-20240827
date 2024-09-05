@@ -32,6 +32,7 @@ const handler = NextAuth({
   ],
   pages: {
     signIn: '/login',
+    signOut: '/login', // ログアウト後のリダイレクト先を設定
   },
   session: {
     strategy: 'jwt',
@@ -44,6 +45,11 @@ const handler = NextAuth({
     async session({ session, token }) {
       session.user = token as any
       return session
+    },
+  },
+  events: {
+    signOut: async (message) => {
+      // ログアウト時に追加の処理が必要な場合はここに記述
     },
   },
 })

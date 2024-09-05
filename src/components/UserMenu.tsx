@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { Menu, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
+import { signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import {
   UserIcon, CogIcon, ShieldCheckIcon, EyeSlashIcon, BellIcon, CreditCardIcon,
   ReceiptRefundIcon, ChartBarIcon, LifebuoyIcon, ChatBubbleOvalLeftEllipsisIcon, GlobeAltIcon,
@@ -21,10 +23,16 @@ export const userMenuItems = [
   { name: 'ヘルプとサポート', icon: LifebuoyIcon, href: '/help-support' },
   { name: 'フィードバック', icon: ChatBubbleOvalLeftEllipsisIcon, href: '/feedback' },
   { name: '言語と地域設定', icon: GlobeAltIcon, href: '/language-region', divider: true },
-  { name: 'ログアウト', icon: ArrowLeftOnRectangleIcon, href: '/logout' }
 ];
 
 export default function UserMenu() {
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await signOut({ redirect: false });
+    router.push('/login');
+  };
+
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -56,6 +64,17 @@ export default function UserMenu() {
                 {item.divider && <hr className="my-2 border-gray-200" />}
               </Fragment>
             ))}
+            <Menu.Item>
+              {({ active }) => (
+                <button
+                  onClick={handleLogout}
+                  className={`${active ? 'bg-blue-50 text-blue-600' : 'text-gray-900'} group flex items-center w-full px-4 py-3 text-sm transition-colors duration-150 ease-in-out hover:bg-blue-50 hover:text-blue-600`}
+                >
+                  <ArrowLeftOnRectangleIcon className={`h-5 w-5 mr-4 ${active ? 'text-blue-600' : 'text-gray-400'}`} />
+                  ログアウト
+                </button>
+              )}
+            </Menu.Item>
           </div>
         </Menu.Items>
       </Transition>
